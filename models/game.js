@@ -9,7 +9,7 @@ var Game = mongoose.Schema({
   createdAt   : {type: Date, default: Date.now},
   didWin      : {type: Boolean, default: false},
   cards       : [Number],
-  timeTaken    : Number
+  timeTaken   : {type: Number, default: 0}
 });
 
 mongoose.model('Game', Game);

@@ -103,8 +103,15 @@ function stopGame(game){
   // console.log(timeTaken);
   $('#timer').remove();
   var url = '/games/stop/' + game._id;
-  // console.log(game._id);(url, data, verb, altVerb, event, successFn)
+  // console.log(game._id);
   sendGenericAjaxRequest(url, {timeTaken: timeTaken}, 'POST', 'PUT', null, function(data, status, jqXHR){
-    console.log(data);
+    htmlGameResults(data);
   });
+}
+
+function htmlGameResults(game){
+  console.log(game.timeTaken);
+  $('#gameSpace').empty();
+  var $h1 = $('<h1>Congratulations ' + game.player + ', you completed the game in ' + game.timeTaken + ' seconds!</h1>');
+  $('#gameSpace').append($h1);
 }

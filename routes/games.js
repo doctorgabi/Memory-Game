@@ -56,12 +56,12 @@ exports.show = function(req, res){
  */
 
 exports.stop = function(req, res){
-  console.log(req.body);
-  // Game.findById(req.params.id, function(err, game){
-  //   game.cardSelected = game.cards[req.query.cardIndex];
-  //   game.cardIndex = req.query.cardIndex;
-  //   game.save(function(err, game){
-  //     res.send(game);
-  //   });
-  // });
+  //console.log('this is from routes/games req.body.timeTaken: ' + req.body.timeTaken);
+  var time = req.body.timeTaken;
+  Game.findById(req.params.id, function(err, game){
+    game.timeTaken = time;
+    game.save(function(err, game){
+      res.send(game);//this is sending back to frontend app.js stopGame
+    });
+  });
 };

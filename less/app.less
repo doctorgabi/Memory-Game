@@ -10,7 +10,9 @@ background:
   background-size:16px 16px;
 }
 h1{
-  color: #cccccc;
+  color: #999999;
+  text-shadow: 6px 4px 2px black;
+  text-align: center;
 }
 fieldset{
   border: 2px solid #333333;
@@ -30,11 +32,27 @@ fieldset{
     color: #111111;
   }
 }
+#newGame input{
+  background-color: @base;
+  border-radius: 10px;
+  -moz-box-shadow: 5px 3px 10px #000000;
+  -webkit-box-shadow: 5px 3px 10px #000000;
+  box-shadow: 5px 3px 10px #000000;
+  filter: progid:DXImageTransform.Microsoft.Shadow(strength = 5, direction = 117, color = '#000000');
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(strength = 5, Direction = 117, Color = '#000000')";
 
+}
 .card{
   width: 11%;
   height: 150px;
-  background-color: @base + #444444;
+
+  background-image: -moz-linear-gradient(top, @base + #112233, @base - #334455);
+  background-image: -ms-linear-gradient(top, @base + #112233, @base - #334455);
+  background-image: -o-linear-gradient(top, @base + #112233, @base - #334455);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(@base + #112233), to(@base - #334455));
+  background-image: -webkit-linear-gradient(top, @base + #112233, @base - #334455);
+  background-image: linear-gradient(top, @base + #112233, @base - #334455);
+
   border-radius: 10px;
   float: left;
   margin: 2%;
@@ -51,5 +69,10 @@ h3{
   color: @base + #775533;
 }
 .matched{
-  background-color: @base + #775533;
+  background-image: -moz-linear-gradient(top, @base + #110011, @base + #223344);
+  background-image: -ms-linear-gradient(top, @base + #110011, @base + #223344);
+  background-image: -o-linear-gradient(top, @base + #110011, @base + #223344);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(@base + #110011), to(@base + #223344));
+  background-image: -webkit-linear-gradient(top, @base + #110011, @base + #223344);
+  background-image: linear-gradient(top, @base + #110011, @base + #223344);
 }
