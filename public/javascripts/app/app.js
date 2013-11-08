@@ -52,10 +52,10 @@ function htmlFlipCard(game){
   var $flippedCard = $('#gameSpace > div.card:nth-child('+cardIndex+')');
   $flippedCard.append($('<h2>'+ cardValue + '</h2>'));
   $flippedCard.addClass('active');
-  compareCards($flippedCard);
+  compareCards($flippedCard, game);
 }
 
-function compareCards(card){
+function compareCards(card, game){
   var $card1 = $(card);
   if($('#gameSpace > div.active').length > 1){
     $card1.removeClass('active');
@@ -72,7 +72,7 @@ function compareCards(card){
         }, 1500);
     }
     if($('#gameSpace > div.matched').length == $('#gameSpace > div').length){
-      console.log('Game Complete!');
+      stopGame(game);
     }
   }
 }
@@ -96,3 +96,15 @@ function sendGenericAjaxRequest(url, data, verb, altVerb, event, successFn){
 // ------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------ //
+
+function stopGame(game){
+  var timeTaken = $('#timer').text();
+  timeTaken = timeTaken.substring(0, timeTaken.length - 8);
+  // console.log(timeTaken);
+  $('#timer').remove();
+  var url = '/games/stop/' + game._id;
+  // console.log(game._id);(url, data, verb, altVerb, event, successFn)
+  sendGenericAjaxRequest(url, {timeTaken: timeTaken}, 'POST', 'PUT', null, function(data, status, jqXHR){
+    console.log(data);
+  });
+}

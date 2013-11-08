@@ -51,3 +51,17 @@ exports.show = function(req, res){
     });
   });
 };
+/*
+ * GET /games/stop/:id
+ */
+
+exports.stop = function(req, res){
+  console.log(req.body);
+  // Game.findById(req.params.id, function(err, game){
+  //   game.cardSelected = game.cards[req.query.cardIndex];
+  //   game.cardIndex = req.query.cardIndex;
+  //   game.save(function(err, game){
+  //     res.send(game);
+  //   });
+  // });
+};
